@@ -7,4 +7,4 @@
     severus --target-bam /data/renweijie/data/HCC1395/HCC1395.GRCh38.bam \
         --out-dir /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output \
         --control-bam /data/renweijie/data/HCC1395/HCC1395-BL.GRCh38.bam \
-        --threads 4
+        --threads 2
