@@ -6,5 +6,6 @@
 ## 二、运行severus
     severus --target-bam /data/renweijie/data/HCC1395/HCC1395.GRCh38.bam \
         --out-dir /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output \
+        --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
         --control-bam /data/renweijie/data/HCC1395/HCC1395-BL.GRCh38.bam \
-        --threads 2
+        -t 4
