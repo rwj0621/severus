@@ -73,6 +73,9 @@
 
         conda activate plot_env
         python /data/renweijie/python_plots/Severus_myResults/compare_sv_counts.py
+#### (2)与金标准对比
+
+        
 
   
 
