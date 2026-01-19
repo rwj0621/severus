@@ -23,5 +23,10 @@
         --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
         --control-bam /data/renweijie/data/HCC1395/HCC1395_ont/normal/normal.ont.bam \
         -t 4
+### 3.用truvari验证结果的准确性
+#### （1）与severus文章提供的结果对比
+* 过滤 BND（断点）类型的重复记录
+  结构变异中的“易位”或“复杂重排”通常用 BND (Breakend) 类型表示。在 VCF 标准中，一个完整的 BND 变异通常由两条记录组成（互相指向对方的 MATE），代表断裂点的两端。
+  但是，Truvari 在进行变异比对时，无法处理这种成对的重复记录（它只需要一个代表即可）。如果直接输入原始文件，Truvari 可能会报错或导致计数翻倍。
 
           
