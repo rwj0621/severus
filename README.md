@@ -23,6 +23,18 @@
         --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
         --control-bam /data/renweijie/data/HCC1395/HCC1395_ont/normal/normal.ont.bam \
         -t 4
+* 差一个分型文件
+
+        #在本地拉取给的镜像
+        docker pull kishwars/pepper_deepvariant:r0.8-gpu
+        #将镜像保存
+        d:
+        cd D:\docker-images
+        docker save kishwars/pepper_deepvariant:r0.8-gpu -o pepper_r0.8.tar
+        # 上传到服务器
+        #在服务器上进行镜像转换
+        singularity build pepper_deepvariant_r0.8-gpu.sif docker-archive://pepper_r0.8.tar
+        
 ### 3.用truvari验证结果的准确性
 #### （1）与severus文章提供的结果对比
 * 添加VAF字段
@@ -45,8 +57,8 @@
         tabix -p vcf severus_somatic_vaf.vcf.gz
         cd /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/preprocess_for_truvari/truvari_output
         truvari bench \
-        -b /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/preprocess_for_truvari/truvari_vcfs/severus_HIFI_vaf.vcf.gz \
-        -c /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/preprocess_for_truvari/truvari_vcfs/severus_somatic_vaf.vcf.gz \
+        -b /data/renweijie/Softwares/SV_tools/sniffles2/truvari_vcfs/sniffles2_HIFI_vaf.vcf.gz \
+        -c /data/renweijie/Softwares/SV_tools/sniffles2/truvari_vcfs/HCC1395_somatic_vaf.vcf.gz \
         --typeignore \
         --dup-to-ins \
         -p 0 \
@@ -54,7 +66,7 @@
         -S 0 \
         --sizemax 100000000 \
         --passonly \
-        -o severus_truvari_output
+        -o Sniffles2_truvari_output
   
 
         
