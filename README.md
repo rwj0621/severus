@@ -67,6 +67,13 @@
         --sizemax 100000000 \
         --passonly \
         -o Sniffles2_truvari_output
+### 4.绘图 从SV数量类型进行比较
+#### （1）与severus文章提供的结果对比
+
+
+        conda activate plot_env
+        python /data/renweijie/python_plots/Severus_myResults/compare_sv_counts.py
+
   
 
         
