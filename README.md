@@ -17,7 +17,7 @@
         --out-dir /data/renweijie/Softwares/SV_tools/severus/HCC1395_2022_PacBio_Somatic_output\
         --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
         --control-bam /data/renweijie/data/HCC1395/HCC1395_pacbio_PBMM2/nomal/normal.pacbio.PBMM2.bam \
-        -t 4
+        -t 2
 * 重新建立索引
 
 
