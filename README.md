@@ -29,9 +29,9 @@
             --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
             --control-bam /data/renweijie/data/HCC1395/HCC1395_ont/normal/normal.ont.bam \
             -t 4
-       * 仅提取INS
+* 仅提取INS
 
-               python /data/renweijie/Softwares/SV_tools/severus/extract_ins.py /data/renweijie/Softwares/SV_tools/severus/HCC1395_2022_Ont_Somatic_SV_output/somatic_SVs/severus_somatic.vcf
+          python /data/renweijie/Softwares/SV_tools/severus/extract_ins.py /data/renweijie/Softwares/SV_tools/severus/HCC1395_2022_Ont_Somatic_SV_output/somatic_SVs/severus_somatic.vcf
 
                
 * 差一个分型文件
