@@ -9,32 +9,11 @@
     md5sum /data/renweijie/data/HCC1395/HCC1395_ont/normal/normal.ont.bam
 ### 2.运行severus
     severus --target-bam /data/renweijie/data/HCC1395/HCC1395.GRCh38.bam \
-        --out-dir /data/renweijie/Softwares/SV_tools/severus/HCC1395_HiFi_Somatic_SV_output \
+        --out-dir /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output \
         --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
         --control-bam /data/renweijie/data/HCC1395/HCC1395-BL.GRCh38.bam \
         -t 4
-    severus --target-bam /data/renweijie/data/HCC1395/HCC1395_pacbio_PBMM2/tumor/tumor.pacbio.PBMM2.bam \
-        --out-dir /data/renweijie/Softwares/SV_tools/severus/HCC1395_2022_PacBio_Somatic_SV_output\
-        --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
-        --control-bam /data/renweijie/data/HCC1395/HCC1395_pacbio_PBMM2/nomal/normal.pacbio.PBMM2.bam \
-        -t 2
-* 重新建立索引
-
-
-        samtools index -@ 2 /data/renweijie/data/HCC1395/HCC1395_ont/tumor/tumor.ont.bam
-        samtools index -@ 2 /data/renweijie/data/HCC1395/HCC1395_ont/normal/normal.ont.bam
-  
-        severus --target-bam /data/renweijie/data/HCC1395/HCC1395_ont/tumor/tumor.ont.bam \
-            --out-dir /data/renweijie/Softwares/SV_tools/severus/HCC1395_2022_Ont_Somatic_SV_output \
-            --vntr-bed /data/renweijie/Softwares/SV_tools/severus/human_GRCh38_no_alt_analysis_set.trf.bed \
-            --control-bam /data/renweijie/data/HCC1395/HCC1395_ont/normal/normal.ont.bam \
-            -t 4
-* 仅提取INS
-
-          python /data/renweijie/Softwares/SV_tools/severus/extract_ins.py /data/renweijie/Softwares/SV_tools/severus/HCC1395_2022_Ont_Somatic_SV_output/somatic_SVs/severus_somatic.vcf
-
-               
-* 差一个分型文件
+* 分型文件
 
         #在本地拉取给的镜像
         docker pull kishwars/pepper_deepvariant:r0.8-gpu
@@ -47,7 +26,7 @@
         singularity build pepper_deepvariant_r0.8-gpu.sif docker-archive://pepper_r0.8.tar
         
 ### 3.用truvari验证结果的准确性
-#### （1）与severus文章提供的结果对比
+#### 与severus文章提供的结果对比
 * 添加VAF字段
 
   在结构变异（SV）分析中，原始文件往往只记录支持变异的读数，而 VAF 通过计算变异读数与总覆盖度的比例，直观地告诉我们这个变异在样本中出现的频率：它可以帮助我们剔除测序噪声和假阳性（通常表现为极低的 VAF）
